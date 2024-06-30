@@ -16,9 +16,7 @@ should be order-able in the playlist.
 * Implement the test cases in `tests/test_playlists.py`. The goal is to have no skipped or failing tests.
 * Update the Django admin with the ability to browse and manage playlists.
 
-# ---------------------------------------------
 # Steps for setup and run project
-# ---------------------------------------------
 
 1. `clone project from github repo link` [here](https://github.com/Mahammadhusain/music_catalogue.git)
 2. `make python virtual environment and activate it`.
@@ -26,9 +24,8 @@ should be order-able in the playlist.
 4. `after sucessfull install dependencies run django server using` command `python manage.py runserver`
 
 
-# ---------------------------------------------
 # API's reference
-# ---------------------------------------------
+
 Rest Api's roots start from `http://127.0.0.1:8000/api/` 
 ## API's Endpoints
 
@@ -38,9 +35,9 @@ Rest Api's roots start from `http://127.0.0.1:8000/api/`
 4. `"playlists": "http://127.0.0.1:8000/api/playlists/"` - Full CRUD Support
 
 
-# ---------------------------------------------
+
 # Playlist CRUD Django views reference
-# ---------------------------------------------
+
 Playlist CRUD roots start from `http://127.0.0.1:8000/`
 ## Playlist CRUD urls of django views
 
@@ -50,10 +47,12 @@ Playlist CRUD roots start from `http://127.0.0.1:8000/`
 - `playlists/<uuid:uuid>/update/ [name='playlist_update']`
 - `playlists/<uuid:uuid>/delete/ [name='playlist_delete']` 
 
+# Playlist CRUD Unit testing
+Test-case directory location is `api/tests/test_playlists.py`
+Run command for run test cases `python manage.py test api.tests.test_playlists`
 
-# ---------------------------------------------
+
 # Technologies used
-# ---------------------------------------------
 
 ## Frontend
 - `Html`
