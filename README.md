@@ -48,8 +48,8 @@ Playlist CRUD roots start from `http://127.0.0.1:8000/`
 - `playlists/<uuid:uuid>/delete/ [name='playlist_delete']` 
 
 # Playlist CRUD Unit testing
-Test-case directory location is `api/tests/test_playlists.py`
-Run command for run test cases `python manage.py test api.tests.test_playlists`
+- Test-case directory location is `api/tests/test_playlists.py`
+- Run command for run test cases `python manage.py test api.tests.test_playlists`
 
 
 # Technologies used
