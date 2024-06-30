@@ -20,7 +20,7 @@ should be order-able in the playlist.
 # Steps for setup and run project
 # ---------------------------------------------
 
-1. `clone project from` [here](https://github.com/Mahammadhusain/music_catalogue.git)
+1. `clone project from github repo link` [here](https://github.com/Mahammadhusain/music_catalogue.git)
 2. `make python virtual environment and activate it`.
 3. `install project dependencies using` command `pip install -r requirements.txt`
 4. `after sucessfull install dependencies run django server using` command `python manage.py runserver`
