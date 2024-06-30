@@ -1,0 +1,60 @@
+{% extends "catalogue/base.html" %}
+
+{% block title %}{% if playlist %}Edit Playlist{% else %}Create Playlist{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if playlist %}Edit Playlist{% else %}Create Playlist{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            {{ playlist_form.as_p }}
+        </div>
+    </div>
+    <h2>Tracks</h2>
+    <button class="btn btn-sm btn-outline-success mb-3" id="add-form"><i class="bi bi-plus-lg"></i> Add Another Track</button>
+
+    <div class="row">
+        <div class="col-6">
+            {{ formset.management_form }}
+        </div>
+    </div>
+    <table id="formset" class="mb-3">
+        <thead>
+            <tr>
+                <th>Track</th>
+                <th>Order</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for form in formset %}
+            <tr>
+                <td>{{ form.track }}</td>
+                <td>{{ form.order }}</td>
+                <td>
+                    <div class="form-check">
+                        {{ form.DELETE }}
+                        <label class="form-check-label" for="{{ form.DELETE.id_for_label }}"></label>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class="btn btn-sm btn-outline-success" type="submit"><i class="bi bi-save"></i> Save</button>
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'playlist_list' %}"><i class="bi bi-arrow-left-circle"></i> Back to Playlists</a>
+</form>
+
+<script>
+    document.getElementById('add-form').addEventListener('click', function (e) {
+        e.preventDefault();
+        var formCount = parseInt(document.getElementById('id_form-TOTAL_FORMS').value);
+        var newForm = document.querySelector('#formset tbody tr:last-child').cloneNode(true);
+        var regex = new RegExp('form-' + (formCount - 1), 'g');
+        newForm.innerHTML = newForm.innerHTML.replace(regex, 'form-' + formCount);
+        document.querySelector('#formset tbody').appendChild(newForm);
+        document.getElementById('id_form-TOTAL_FORMS').value = formCount + 1;
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "catalogue/base.html" %}
+
+{% block title %}{{ playlist.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ playlist.name }}</h1>
+    <p>UUID: {{ playlist.uuid }}</p>
+    <h2>Tracks:</h2>
+    <ul>
+        {% for playlist_track in playlist.playlisttrack_set.all %}
+            <li style="list-style: none;"><i class="bi bi-music-note-beamed"></i> {{ playlist_track.track.title }} <span class="text-muted fst-italic">({{ playlist_track.track.album.title }} by {{ playlist_track.track.album.artist.name }})</span></li>
+        {% empty %}
+            <li>No tracks in this playlist.</li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-sm btn-outline-info" href="{% url 'playlist_update' uuid=playlist.uuid %}"><i class="bi bi-pencil-square"></i> Edit Playlist</a>
+    <a class="btn btn-sm btn-outline-danger" href="{% url 'playlist_delete' uuid=playlist.uuid %}"><i class="bi bi-trash3"></i> Delete Playlist</a>
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'playlist_list' %}"><i class="bi bi-arrow-left-circle"></i> Back to Playlists</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "catalogue/base.html" %}
+
+{% block title %}Playlists{% endblock %}
+
+{% block content %}
+    <h1>Playlists</h1>
+    <a class="btn btn-sm btn-outline-success mb-3" href="{% url 'playlist_create' %}"><i class="bi bi-plus-lg"></i> Create New Playlist</a>
+    <ul class="list-group list-group-flush">
+    {% for playlist in playlists %}
+    <li class="list-group-item">
+        <a href="{% url 'playlist_detail' uuid=playlist.uuid %}"><h5><i class="bi bi-music-note-list"></i> {{ playlist.name }}</h5></a>
+        <p><i class="text-muted"> Total tracks: {{ playlist.tracks.count }}</i></p>
+    </li>
+    {% empty %}
+    <li>No playlists available.</li>
+    {% endfor %}
+
+    </ul>
+      
+   
+{% endblock %}
