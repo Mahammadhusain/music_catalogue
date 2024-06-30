@@ -31,12 +31,12 @@ should be order-able in the playlist.
 # ---------------------------------------------
 Rest Api's roots start from `http://127.0.0.1:8000/api/` 
 ## API's Endpoints
-`{
-    "artists": "http://127.0.0.1:8000/api/artists/", - Read-only
-    "albums": "http://127.0.0.1:8000/api/albums/", - Read-only
-    "tracks": "http://127.0.0.1:8000/api/tracks/", - Read-only
-    "playlists": "http://127.0.0.1:8000/api/playlists/" - Full CRUD Suport
-}'
+
+1. `"artists": "http://127.0.0.1:8000/api/artists/"` - Read-only
+2. `"albums": "http://127.0.0.1:8000/api/albums/"` - Read-only
+3. `"tracks": "http://127.0.0.1:8000/api/tracks/"` - Read-only
+4. `"playlists": "http://127.0.0.1:8000/api/playlists/"` - Full CRUD Support
+
 
 # ---------------------------------------------
 # Playlist CRUD Django views reference
